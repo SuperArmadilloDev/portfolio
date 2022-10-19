@@ -1,0 +1,12 @@
+{
+  "eslint.validate": ["typescript"],
+  // "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "css.validate": true,
+  "scss.validate": true,
+  "cSpell.words": ["tailwindcss"]
+}
