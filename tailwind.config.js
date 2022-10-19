@@ -1,13 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [],
   theme: {
+    darkSelector: '.dark-mode',
     extend: {
       fontFamily: {
         Titillium: ['test'],
       },
       colors: {
-        'dark-grey': '#222831',
+        'dark-grey': { 50: '#222831', 100: '#343D4B', 200: '#242431' },
+        'dark-brown': { 50: '#FFD369' },
       },
     },
   },

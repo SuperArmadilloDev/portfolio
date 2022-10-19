@@ -2,6 +2,15 @@
   "styleRef": {
     "title": "Référence de style",
     "intro": "Voici la page où tous les styles du portfolio ont été testé.",
-    "iconsTitle": "Icônes"
+    "iconsTitle": "Icônes",
+    "navTitle": "Navigation",
+    "textButtonIcon": "Bouton avec icône"
+  },
+
+  "navText": {
+    "about": "À propos",
+    "formations": "Formations",
+    "skills": "Compétences",
+    "experiences": "Experiences"
   }
 }

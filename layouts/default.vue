@@ -1,9 +1,10 @@
 <template>
-  <div class="relative">
-    <div
-      class="bg-green-500 md:ml-auto inset-0 h-20 md:min-h-screen fixed md:w-20"
-    >
-      <button class="btn border border-white capitalize" @click="changeMode">
+  <div class="">
+    <div class="md:ml-auto inset-0 h-20 md:min-h-screen fixed md:w-20">
+      <button
+        class="btn border border-white capitalize"
+        @click="changeMode"
+      >
         {{ btnLabel }}
       </button>
       <br />
@@ -11,7 +12,9 @@
       <br />
       <NuxtLink to="/"> Home </NuxtLink>
     </div>
-    <div class="bg-orange-500 w-full min-h-screen dark:bg-dark-grey">
+    <div
+      class="bg-orange-500 w-fill min-h-screen dark:bg-dark-grey-50 md:pr-20"
+    >
       <slot />
     </div>
   </div>

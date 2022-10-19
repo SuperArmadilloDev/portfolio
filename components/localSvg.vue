@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:bg-white rounded-full">
+  <div class="dark:bg-white">
     <img class="w-6" :src="`assets/sprite/svg/${svgFile}.svg`" />
   </div>
 </template>

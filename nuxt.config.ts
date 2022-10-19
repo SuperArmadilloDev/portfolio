@@ -16,6 +16,21 @@ export default defineNuxtConfig({
   },
 
   colorMode: {
+    preference: 'system',
+    fallback: 'dark',
     classSuffix: '',
+  },
+
+  vite: {
+    css: {
+      preprocessorOptions: {
+        // scss: {
+        //   additionalData: '@import "@/assets/style/mixin.scss";',
+        // },
+        sass: {
+          additionalData: '@import "@/assets/style/background.sass"',
+        },
+      },
+    },
   },
 });
