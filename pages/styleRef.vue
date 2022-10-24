@@ -8,6 +8,12 @@
     </div>
 
     <H2Title>
+      {{ $t('styleRef.colorPalette') }}
+    </H2Title>
+
+    <DisplayPalette />
+
+    <H2Title>
       {{ $t('styleRef.iconsTitle') }}
     </H2Title>
     <div class="flex gap-5 mb-8">
@@ -21,7 +27,7 @@
     </div>
     <div class="mb-8">
       <button
-        class="bg-dark-brown-50 hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center text-black"
+        class="bg-button-theme-0 hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center text-white"
       >
         <span class="material-icons mr-2"> mail </span>
         <span>
@@ -34,7 +40,8 @@
       {{ $t('styleRef.navTitle') }}
     </H2Title>
     <div
-      class="h-12 grid-cols-4 grid place-items-center sticky top-2 w-fill border-solid border-b-2 dark:border-dark-grey-100 mb-8"
+      style="z-index: 1"
+      class="h-12 grid-cols-4 grid place-items-center sticky top-0 w-fill border-solid border-b dark:border-card-theme-1 mb-8 dark:bg-background-theme-0"
     >
       <NavButtons :hash-name="'about'">
         {{ $t('navText.about') }}
@@ -54,13 +61,97 @@
     </H2Title>
     <div
       id="about"
-      class="dark:bg-dark-grey-100 px-10 py-5"
+      class="mb-10 dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
     >
-      ABOUTE
+      <CardTitle>
+        {{ $t('styleRef.cardContentTitle') }}
+      </CardTitle>
+      <div class="grid grid-cols-2 gap-10 mb-5">
+        <div>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus
+          quam ut magna convallis laoreet. Aliquam sollicitudin, orci vehicula
+          semper vehicula, nunc libero varius sem, consequat aliquam metus nibh
+          eu lacus. Aenean sit amet lobortis risus. Phasellus pellentesque
+          tortor purus, id cursus dui efficitur ut. Donec sit amet felis dictum,
+          scelerisque velit id, mattis nisl. Suspendisse varius sem diam, non
+          convallis odio condimentum vel. Phasellus ultrices nisi id eros
+          bibendum, eu egestas massa sollicitudin. Donec aliquam velit massa.
+          Orci varius natoque penatibus et magnis dis parturient montes,
+          nascetur ridiculus mus. Praesent sit amet nisl egestas, fringilla
+          massa vel, cursus velit. Maecenas in bibendum eros. In congue turpis
+          nec bibendum aliquam. Morbi placerat dui turpis, et sollicitudin nunc
+          iaculis eget. Proin nec felis in ex interdum tincidunt. Ut fringilla,
+          ipsum vel rhoncus consequat, dui arcu rhoncus augue, a mattis velit
+          magna at risus. Integer quis maximus nulla. Proin odio velit, lacinia
+          et urna ut, maximus viverra augue. Donec accumsan lorem ut nunc
+          feugiat, sed bibendum eros imperdiet. Etiam laoreet libero eu nulla
+          vestibulum, et vulputate nisi consectetur. Nulla iaculis justo metus,
+          at mattis magna ultricies non. Sed ac posuere purus. Quisque egestas
+          semper sapien, sed facilisis mauris lacinia quis. Morbi eu scelerisque
+          tortor, ut vestibulum leo. In varius felis quis mauris interdum
+          tempus. Quisque vestibulum eget mi at aliquam. Nulla sagittis id ipsum
+          eu luctus. Donec mollis pulvinar tempus. Aenean justo est, maximus sit
+          amet lobortis a, scelerisque id purus. Donec felis tortor, maximus et
+          elementum eget, finibus maximus nisi. Ut aliquet elementum iaculis.
+          Nulla eget metus ultrices, dapibus eros sit amet, laoreet tellus. Nunc
+          varius facilisis neque a semper.
+        </div>
+        <div class="w-full flex justify-end">
+          <img
+            class="inset-y-0 right-0 rounded-lg"
+            src="https://picsum.photos/1000/500"
+            alt="lorem pictum image"
+          />
+        </div>
+      </div>
+      <CustomButton
+        has-icon
+        :icon="'vape_free'"
+      >
+        Salut
+      </CustomButton>
     </div>
-    <div id="formations">ABOUTE</div>
-    <div id="skills">ABOUTE</div>
-    <div id="experiences">ABOUTE</div>
+    <div
+      id="formations"
+      class="dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
+    >
+      <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus
+        quam ut magna convallis laoreet. Aliquam sollicitudin, orci vehicula
+        semper vehicula, nunc libero varius sem, consequat aliquam metus nibh eu
+        lacus. Aenean sit amet lobortis risus. Phasellus pellentesque tortor
+        purus, id cursus dui efficitur ut. Donec sit amet felis dictum,
+        scelerisque velit id, mattis nisl. Suspendisse varius sem diam, non
+        convallis odio condimentum vel. Phasellus ultrices nisi id eros
+        bibendum, eu egestas massa sollicitudin. Donec aliquam velit massa. Orci
+        varius natoque penatibus et magnis dis parturient montes, nascetur
+        ridiculus mus. Praesent sit amet nisl egestas, fringilla massa vel,
+        cursus velit. Maecenas in bibendum eros. In congue turpis nec bibendum
+        aliquam. Morbi placerat dui turpis, et sollicitudin nunc iaculis eget.
+        Proin nec felis in ex interdum tincidunt. Ut fringilla, ipsum vel
+        rhoncus consequat, dui arcu rhoncus augue, a mattis velit magna at
+        risus. Integer quis maximus nulla. Proin odio velit, lacinia et urna ut,
+        maximus viverra augue. Donec accumsan lorem ut nunc feugiat, sed
+        bibendum eros imperdiet. Etiam laoreet libero eu nulla vestibulum, et
+        vulputate nisi consectetur. Nulla iaculis justo metus, at mattis magna
+        ultricies non. Sed ac posuere purus. Quisque egestas semper sapien, sed
+        facilisis mauris lacinia quis. Morbi eu scelerisque tortor, ut
+        vestibulum leo. In varius felis quis mauris interdum tempus. Quisque
+        vestibulum eget mi at aliquam. Nulla sagittis id ipsum eu luctus. Donec
+        mollis pulvinar tempus. Aenean justo est, maximus sit amet lobortis a,
+        scelerisque id purus. Donec felis tortor, maximus et elementum eget,
+        finibus maximus nisi. Ut aliquet elementum iaculis. Nulla eget metus
+        ultrices, dapibus eros sit amet, laoreet tellus. Nunc varius facilisis
+        neque a semper.
+      </div>
+      <div class="w-full flex justify-end">
+        <img
+          class="inset-y-0 right-0 rounded-lg"
+          src="https://picsum.photos/500"
+          alt="lorem pictum image"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -80,12 +171,4 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-/* divide-x */
-</style>
-<style>
-.scr {
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
-</style>
+<style></style>

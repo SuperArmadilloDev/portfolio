@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
-    class="transition ease-in-out dark:hover:bg-dark-grey-100 dark:focus:bg-dark-grey-100 w-full h-full flex items-center justify-center"
-    :class="{ 'dark:bg-dark-grey-100': isInPart }"
+    class="transition ease-in-out dark:hover:bg-card-theme-0 dark:focus:bg-card-theme-0 w-full h-full flex items-center justify-center"
+    :class="{ 'dark:bg-background-theme-50': isInPart }"
     :href="`#${hashName}`"
   >
     <slot />

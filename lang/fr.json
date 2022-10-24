@@ -5,7 +5,9 @@
     "iconsTitle": "Icônes",
     "navTitle": "Navigation",
     "cardTitle": "Contenu des éléments",
-    "textButtonIcon": "Bouton avec icône"
+    "colorPalette": "Palette de couleur",
+    "textButtonIcon": "Bouton avec icône",
+    "cardContentTitle": "titre du contenu de la carte"
   },
 
   "navText": {

@@ -13,7 +13,7 @@
       <NuxtLink to="/"> Home </NuxtLink>
     </div>
     <div
-      class="bg-orange-500 w-fill min-h-screen dark:bg-dark-grey-50 md:pr-20"
+      class="bg-orange-500 w-fill min-h-screen dark:bg-background-theme-0 md:pr-20"
     >
       <slot />
     </div>

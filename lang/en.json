@@ -5,7 +5,9 @@
     "iconsTitle": "Icons",
     "navTitle": "Navigation",
     "cardTitle": "Element contents",
-    "textButtonIcon": "Button with icon"
+    "colorPalette": "Color palette",
+    "textButtonIcon": "Button with icon",
+    "cardContentTitle": "Card content title"
   },
 
   "navText": {
