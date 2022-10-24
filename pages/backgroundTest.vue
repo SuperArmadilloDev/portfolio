@@ -1,7 +1,14 @@
 <template>
-  <div class="line" />
-  <div class="line" />
-  <div class="line" />
+  <NuxtLink href="#hello">
+    <button>hello</button>
+  </NuxtLink>
+
+  <div
+    id="hello"
+    style="margin-top: 200vh"
+  >
+    hello
+  </div>
 </template>
 
 <script>

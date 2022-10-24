@@ -1,5 +1,5 @@
 <template>
-  <div class="dark:text-white px-10">
+  <div class="dark:text-white px-10 relative">
     <h1 class="text-7xl font-bold py-10">
       {{ $t('styleRef.title') }}
     </h1>
@@ -34,31 +34,34 @@
       {{ $t('styleRef.navTitle') }}
     </H2Title>
     <div
-      class="h-12 grid-cols-4 grid text-center sticky top-10 w-fill border-solid border-b-2 dark:border-dark-grey-100 mb-8"
+      class="h-12 grid-cols-4 grid place-items-center sticky top-2 w-fill border-solid border-b-2 dark:border-dark-grey-100 mb-8"
     >
-      <NavButtons>{{ $t('navText.about') }}</NavButtons>
-      <NavButtons>{{ $t('navText.formations') }}</NavButtons>
-      <NavButtons>{{ $t('navText.skills') }}</NavButtons>
-      <NavButtons>{{ $t('navText.experiences') }}</NavButtons>
+      <NavButtons :hash-name="'about'">
+        {{ $t('navText.about') }}
+      </NavButtons>
+      <NavButtons :hash-name="'formations'">
+        {{ $t('navText.formations') }}
+      </NavButtons>
+      <NavButtons :hash-name="'skills'">
+        {{ $t('navText.skills') }}
+      </NavButtons>
+      <NavButtons :hash-name="'experiences'">
+        {{ $t('navText.experiences') }}
+      </NavButtons>
     </div>
+    <H2Title>
+      {{ $t('styleRef.cardTitle') }}
+    </H2Title>
+    <div
+      id="about"
+      class="dark:bg-dark-grey-100 px-10 py-5"
+    >
+      ABOUTE
+    </div>
+    <div id="formations">ABOUTE</div>
+    <div id="skills">ABOUTE</div>
+    <div id="experiences">ABOUTE</div>
   </div>
-  <div
-    id="stars"
-    class="z-0"
-  />
-  <div
-    id="stars2"
-    class="z-0"
-  />
-  <div
-    id="stars3"
-    class="z-0"
-  />
-  <div
-    v-for="n in 10"
-    key="n"
-    class="h-96"
-  />
 </template>
 
 <script lang="ts">
@@ -80,22 +83,9 @@ export default {
 <style lang="scss" scoped>
 /* divide-x */
 </style>
-<style lang="sass">
-/* divide-x */
-// .theme-light
-//   --star-color: #00ff88
-//   background-color: #e61010
-
-// .light
-//   --star-color: #00ff88
-//   background-color: #e61010
-
-// .light-mode
-//   --star-color: #00ff88
-//   background-color: #e61010
-
-// .dark-mode
-//   background-color: #e61010
-//   --star-color: #000
-//   color: green
+<style>
+.scr {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
 </style>
