@@ -1,7 +1,6 @@
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   modules: [
-    '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@intlify/nuxt3',
     '@nuxtjs/color-mode',

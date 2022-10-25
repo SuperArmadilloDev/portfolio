@@ -2,6 +2,7 @@
 module.exports = {
   darkMode: 'class',
   content: [],
+  plugins: [],
   theme: {
     darkSelector: '.dark-mode',
     extend: {
@@ -54,7 +55,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
 
   darkMode: 'class',
   variants: {
