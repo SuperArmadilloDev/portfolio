@@ -39,23 +39,23 @@
     <H2Title>
       {{ $t('styleRef.navTitle') }}
     </H2Title>
+
+    <!-- <CustomNavigation :hash-links="hashLinks" /> -->
+
     <div
       style="z-index: 1"
       class="h-12 grid-cols-4 grid place-items-center sticky top-0 w-fill border-solid border-b dark:border-card-theme-1 mb-8 dark:bg-background-theme-0"
     >
-      <NavButtons :hash-name="'about'">
-        {{ $t('navText.about') }}
-      </NavButtons>
-      <NavButtons :hash-name="'formations'">
-        {{ $t('navText.formations') }}
-      </NavButtons>
-      <NavButtons :hash-name="'skills'">
-        {{ $t('navText.skills') }}
-      </NavButtons>
-      <NavButtons :hash-name="'experiences'">
-        {{ $t('navText.experiences') }}
+      <NavButtons
+        v-for="item in hashLinks"
+        :key="item.ref"
+        ref="navigation"
+        :hash-name="item.ref"
+      >
+        {{ $t(`navText.${item.name}`) }}
       </NavButtons>
     </div>
+
     <H2Title>
       {{ $t('styleRef.cardTitle') }}
     </H2Title>
@@ -155,20 +155,33 @@
   </div>
 </template>
 
-<script lang="ts">
-export default {
-  head() {
-    return {
-      link: [
-        // Add this
-        {
-          rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-        },
-      ],
-    };
-  },
-};
-</script>
+<script lang="ts" setup>
+useHead({
+  link: [
+    // for mdn icons
+    {
+      rel: 'stylesheet',
+      href: 'https://fonts.googleapis.com/icon?family=Material+Icons',
+    },
+  ],
+});
 
-<style></style>
+const hashLinks = [
+  {
+    ref: 'about',
+    name: 'about',
+  },
+  {
+    ref: 'formations',
+    name: 'formations',
+  },
+  {
+    ref: 'skills',
+    name: 'skills',
+  },
+  {
+    ref: 'experiences',
+    name: 'experiences',
+  },
+];
+</script>
