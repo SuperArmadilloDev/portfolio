@@ -59,7 +59,7 @@
     <H2Title>
       {{ $t('styleRef.cardTitle') }}
     </H2Title>
-    <div
+    <section
       id="about"
       class="mb-10 dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
     >
@@ -110,8 +110,8 @@
       >
         Salut
       </CustomButton>
-    </div>
-    <div
+    </section>
+    <section
       id="formations"
       class="dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
     >
@@ -151,7 +151,7 @@
           alt="lorem pictum image"
         />
       </div>
-    </div>
+    </section>
   </div>
 </template>
 
@@ -184,4 +184,8 @@ const hashLinks = [
     name: 'experiences',
   },
 ];
+
+onMounted(() => {
+  console.log('azeazeazeazez');
+});
 </script>
