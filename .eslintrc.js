@@ -16,16 +16,27 @@ module.exports = {
   },
   plugins: ['@typescript-eslint'],
   rules: {
-    'html-self-closing': 0,
     semi: ['error', 'always'],
     quotes: ['error', 'single'],
-    'max-len': ['error', { code: 80 }],
+    'max-len': ['error', { code: 120 }],
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'vue/multi-word-component-names': [
       'error',
       {
         ignores: ['default', 'index'],
+      },
+    ],
+    'vue/html-self-closing': [
+      'error',
+      {
+        html: {
+          void: 'always',
+          normal: 'always',
+          component: 'always',
+        },
+        svg: 'always',
+        math: 'always',
       },
     ],
   },

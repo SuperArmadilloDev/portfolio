@@ -2,11 +2,12 @@
   "styleRef": {
     "title": "Style refecences",
     "intro": "This is the page where all of the portfolio style are tested.",
-    "iconsTitle": "Icons",
+    "iconsTitle": "Icons & Buttons",
     "navTitle": "Navigation",
     "cardTitle": "Element contents",
     "colorPalette": "Color palette",
     "textButtonIcon": "Button with icon",
+    "textButton": "Button",
     "cardContentTitle": "Card content title"
   },
 

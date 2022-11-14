@@ -1,7 +1,8 @@
 <template>
   <button
     ref="bt"
-    class="bg-button-theme-3 hover:bg-grey font-bold py-2 px-4 rounded inline-flex items-center text-card-theme-0 button"
+    class="ease-in-out duration-100 font-bold py-2 px-4 rounded inline-flex items-center button w-fit"
+    :class="customColors"
   >
     <span
       v-if="hasIcon"
@@ -18,6 +19,10 @@
 <script lang="ts" setup>
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
+  customColors: {
+    type: String,
+    default: 'bg-button-theme-3 hover:bg-button-theme-4 text-card-theme-0',
+  },
   hasIcon: { type: Boolean, default: false },
   icon: { type: String, default: 'mail' },
 });

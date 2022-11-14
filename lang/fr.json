@@ -2,11 +2,12 @@
   "styleRef": {
     "title": "Référence de style",
     "intro": "Voici la page où tous les styles du portfolio ont été testé.",
-    "iconsTitle": "Icônes",
+    "iconsTitle": "Icônes & Boutons",
     "navTitle": "Navigation",
     "cardTitle": "Contenu des éléments",
     "colorPalette": "Palette de couleur",
     "textButtonIcon": "Bouton avec icône",
+    "textButton": "Bouton",
     "cardContentTitle": "titre du contenu de la carte"
   },
 

@@ -25,137 +25,92 @@
       <LocalSvg :svg-file="'github'" />
       <LocalSvg :svg-file="'gitlab'" />
     </div>
-    <div class="mb-8">
-      <button
-        class="bg-button-theme-0 hover:bg-grey text-grey-darkest font-bold py-2 px-4 rounded inline-flex items-center text-white"
+    <div class="mb-8 flex gap-5">
+      <CustomButton>
+        {{ $t('styleRef.textButton') }}
+      </CustomButton>
+      <CustomButton
+        has-icon
+        :icon="'person'"
       >
-        <span class="material-icons mr-2"> mail </span>
-        <span>
-          {{ $t('styleRef.textButtonIcon') }}
-        </span>
-      </button>
+        {{ $t('styleRef.textButtonIcon') }}
+      </CustomButton>
+      <CustomButton
+        :custom-colors="'bg-button-theme-0 hover:bg-button-theme-1'"
+      >
+        {{ $t('styleRef.textButton') }}
+      </CustomButton>
+      <CustomButton
+        has-icon
+        :custom-colors="'bg-button-theme-0 hover:bg-button-theme-1'"
+      >
+        {{ $t('styleRef.textButtonIcon') }}
+      </CustomButton>
       <!-- component -->
     </div>
     <H2Title>
       {{ $t('styleRef.navTitle') }}
     </H2Title>
 
-    <!-- <CustomNavigation :hash-links="hashLinks" /> -->
-
-    <div
-      style="z-index: 1"
-      class="h-12 grid-cols-4 grid place-items-center sticky top-0 w-fill border-solid border-b dark:border-card-theme-1 mb-8 dark:bg-background-theme-0"
-    >
-      <NavButtons
-        v-for="item in hashLinks"
-        :key="item.ref"
-        ref="navigation"
-        :hash-name="item.ref"
-      >
-        {{ $t(`navText.${item.name}`) }}
-      </NavButtons>
-    </div>
-
+    <CustomNavigation
+      :hash-links="hashLinks"
+      :current-section="activeEntry"
+    />
     <H2Title>
       {{ $t('styleRef.cardTitle') }}
     </H2Title>
-    <section
-      id="about"
-      class="mb-10 dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
-    >
-      <CardTitle>
-        {{ $t('styleRef.cardContentTitle') }}
-      </CardTitle>
-      <div class="grid grid-cols-2 gap-10 mb-5">
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus
-          quam ut magna convallis laoreet. Aliquam sollicitudin, orci vehicula
-          semper vehicula, nunc libero varius sem, consequat aliquam metus nibh
-          eu lacus. Aenean sit amet lobortis risus. Phasellus pellentesque
-          tortor purus, id cursus dui efficitur ut. Donec sit amet felis dictum,
-          scelerisque velit id, mattis nisl. Suspendisse varius sem diam, non
-          convallis odio condimentum vel. Phasellus ultrices nisi id eros
-          bibendum, eu egestas massa sollicitudin. Donec aliquam velit massa.
-          Orci varius natoque penatibus et magnis dis parturient montes,
-          nascetur ridiculus mus. Praesent sit amet nisl egestas, fringilla
-          massa vel, cursus velit. Maecenas in bibendum eros. In congue turpis
-          nec bibendum aliquam. Morbi placerat dui turpis, et sollicitudin nunc
-          iaculis eget. Proin nec felis in ex interdum tincidunt. Ut fringilla,
-          ipsum vel rhoncus consequat, dui arcu rhoncus augue, a mattis velit
-          magna at risus. Integer quis maximus nulla. Proin odio velit, lacinia
-          et urna ut, maximus viverra augue. Donec accumsan lorem ut nunc
-          feugiat, sed bibendum eros imperdiet. Etiam laoreet libero eu nulla
-          vestibulum, et vulputate nisi consectetur. Nulla iaculis justo metus,
-          at mattis magna ultricies non. Sed ac posuere purus. Quisque egestas
-          semper sapien, sed facilisis mauris lacinia quis. Morbi eu scelerisque
-          tortor, ut vestibulum leo. In varius felis quis mauris interdum
-          tempus. Quisque vestibulum eget mi at aliquam. Nulla sagittis id ipsum
-          eu luctus. Donec mollis pulvinar tempus. Aenean justo est, maximus sit
-          amet lobortis a, scelerisque id purus. Donec felis tortor, maximus et
-          elementum eget, finibus maximus nisi. Ut aliquet elementum iaculis.
-          Nulla eget metus ultrices, dapibus eros sit amet, laoreet tellus. Nunc
-          varius facilisis neque a semper.
-        </div>
-        <div class="w-full flex justify-end">
-          <img
-            class="inset-y-0 right-0 rounded-lg"
-            src="https://picsum.photos/1000/500"
-            alt="lorem pictum image"
-          />
-        </div>
-      </div>
-      <CustomButton
-        has-icon
-        :icon="'vape_free'"
+    <div class="flex flex-col gap-5">
+      <section
+        v-for="data in sectionList"
+        :id="data.title"
+        :key="data.title"
+        ref="section"
       >
-        Salut
-      </CustomButton>
-    </section>
-    <section
-      id="formations"
-      class="dark:bg-card-theme-0 rounded-md p-10 border border-card-theme-1"
-    >
-      <div>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin maximus
-        quam ut magna convallis laoreet. Aliquam sollicitudin, orci vehicula
-        semper vehicula, nunc libero varius sem, consequat aliquam metus nibh eu
-        lacus. Aenean sit amet lobortis risus. Phasellus pellentesque tortor
-        purus, id cursus dui efficitur ut. Donec sit amet felis dictum,
-        scelerisque velit id, mattis nisl. Suspendisse varius sem diam, non
-        convallis odio condimentum vel. Phasellus ultrices nisi id eros
-        bibendum, eu egestas massa sollicitudin. Donec aliquam velit massa. Orci
-        varius natoque penatibus et magnis dis parturient montes, nascetur
-        ridiculus mus. Praesent sit amet nisl egestas, fringilla massa vel,
-        cursus velit. Maecenas in bibendum eros. In congue turpis nec bibendum
-        aliquam. Morbi placerat dui turpis, et sollicitudin nunc iaculis eget.
-        Proin nec felis in ex interdum tincidunt. Ut fringilla, ipsum vel
-        rhoncus consequat, dui arcu rhoncus augue, a mattis velit magna at
-        risus. Integer quis maximus nulla. Proin odio velit, lacinia et urna ut,
-        maximus viverra augue. Donec accumsan lorem ut nunc feugiat, sed
-        bibendum eros imperdiet. Etiam laoreet libero eu nulla vestibulum, et
-        vulputate nisi consectetur. Nulla iaculis justo metus, at mattis magna
-        ultricies non. Sed ac posuere purus. Quisque egestas semper sapien, sed
-        facilisis mauris lacinia quis. Morbi eu scelerisque tortor, ut
-        vestibulum leo. In varius felis quis mauris interdum tempus. Quisque
-        vestibulum eget mi at aliquam. Nulla sagittis id ipsum eu luctus. Donec
-        mollis pulvinar tempus. Aenean justo est, maximus sit amet lobortis a,
-        scelerisque id purus. Donec felis tortor, maximus et elementum eget,
-        finibus maximus nisi. Ut aliquet elementum iaculis. Nulla eget metus
-        ultrices, dapibus eros sit amet, laoreet tellus. Nunc varius facilisis
-        neque a semper.
-      </div>
-      <div class="w-full flex justify-end">
-        <img
-          class="inset-y-0 right-0 rounded-lg"
-          src="https://picsum.photos/500"
-          alt="lorem pictum image"
-        />
-      </div>
-    </section>
+        <ExperienceCard
+          :has-image="data.hasImage"
+          :has-button="data.hasButton"
+          :buttons="data.buttons"
+          :image-url="data.image"
+        >
+          <template #cardTitle>
+            {{ data.title }}
+          </template>
+          <template #cardContent>
+            {{ data.content }}
+          </template>
+        </ExperienceCard>
+      </section>
+    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
+const observer = ref();
+const section = ref();
+const activeEntry = ref('');
+onMounted(() => {
+  createObserver();
+  observeSections();
+});
+
+function createObserver() {
+  const options = {
+    threshold: [0.5],
+  };
+  observer.value = new IntersectionObserver((entries) => {
+    const active = entries.filter((e) => e.isIntersecting);
+    if (active.length) {
+      activeEntry.value = active[0].target.attributes.id.value;
+    }
+  }, options);
+}
+
+function observeSections() {
+  section.value.forEach((section) => {
+    observer.value.observe(section);
+  });
+}
+
 useHead({
   link: [
     // for mdn icons
@@ -185,7 +140,49 @@ const hashLinks = [
   },
 ];
 
-onMounted(() => {
-  console.log('azeazeazeazez');
-});
+const sectionList: CardContent[] = [
+  {
+    title: 'about',
+    content: 'this is some text to test the text content section',
+    hasImage: true,
+    hasButton: false,
+    image: 'https://picsum.photos/1000/500',
+  },
+  {
+    title: 'formations',
+    content:
+      'Lorem ipsum dolor sit aLorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. met, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. ',
+    hasImage: false,
+    hasButton: true,
+    buttons: [
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+    ],
+  },
+  {
+    title: 'skills',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. ',
+    hasImage: true,
+    image: 'https://picsum.photos/1000/500',
+    hasButton: true,
+    buttons: [
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+      { text: 'test button text', icon: 'person', hasIcon: true },
+    ],
+  },
+  {
+    title: 'experiences',
+    content:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras efficitur ipsum nec elit vulputate congue. Aliquam erat volutpat. Pellentesque sollicitudin lacus sed placerat tristique. Etiam ut aliquet nibh. Duis consectetur enim et nunc tincidunt tincidunt. Nulla non ex non dolor fringilla condimentum et a sem. Praesent quis lorem sed tortor laoreet venenatis a vel ex. Suspendisse vestibulum et nunc non malesuada. Aenean mi ex, pretium in rhoncus at, condimentum quis metus. Cras ac nunc orci. In hac habitasse platea dictumst. Phasellus ac metus a mi vulputate mattis. Fusce quis erat a turpis tincidunt lacinia. ',
+    hasImage: false,
+    hasButton: false,
+  },
+];
 </script>
