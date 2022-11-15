@@ -9,7 +9,6 @@ declare global {
   interface CompButtons {
     text: string;
     icon?: string;
-    hasIcon: boolean;
   }
 
   interface CompImage {
@@ -17,12 +16,17 @@ declare global {
     alt: string;
   }
 
+  interface ExpContent {
+    company: string;
+    date: string;
+    place: string;
+    tech: string;
+    description: string[];
+  }
   interface CardContent {
     title: string;
-    image?: string;
-    content: string;
-    hasImage: boolean;
-    hasButton: boolean;
+    content: ExpContent;
+    images?: CompImage[];
     buttons?: CompButtons[];
   }
 }

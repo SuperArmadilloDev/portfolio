@@ -5,7 +5,7 @@
     :class="customColors"
   >
     <span
-      v-if="hasIcon"
+      v-if="icon"
       class="material-icons mr-2"
     >
       {{ icon }}
@@ -23,8 +23,7 @@ const props = defineProps({
     type: String,
     default: 'bg-button-theme-3 hover:bg-button-theme-4 text-card-theme-0',
   },
-  hasIcon: { type: Boolean, default: false },
-  icon: { type: String, default: 'mail' },
+  icon: { type: String, default: undefined },
 });
 </script>
 

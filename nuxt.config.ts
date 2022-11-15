@@ -7,7 +7,12 @@ export default defineNuxtConfig({
     '@nuxtjs/svg',
   ],
 
-  css: ['~/assets/style/mixin.scss'],
+  plugins: [
+    // { src: '@/plugins/vue3-particles' },
+    { src: '@/plugins/vue3-carousel' },
+  ],
+
+  css: ['@/assets/style/mixin.scss'],
 
   intlify: {
     localeDir: 'lang',

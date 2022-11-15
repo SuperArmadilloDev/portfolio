@@ -4,17 +4,35 @@
     "intro": "Voici la page où tous les styles du portfolio ont été testé.",
     "iconsTitle": "Icônes & Boutons",
     "navTitle": "Navigation",
-    "cardTitle": "Contenu des éléments",
+    "cardTitle": "Carte pour les expériences",
+    "sectionStyleTitle": "transition des sections",
     "colorPalette": "Palette de couleur",
     "textButtonIcon": "Bouton avec icône",
     "textButton": "Bouton",
-    "cardContentTitle": "titre du contenu de la carte"
+    "experienceCard": {
+      "title": "Responsable technique et technologique des infrastructures spatiales",
+      "company": "Union of Galactic Technology (U.G.T.)",
+      "date": "Aout/2132  -  Sept/2220",
+      "place": "L'espace",
+      "tech": "Voitures volantes - Robot terraformeur - Sphere Dyson",
+      "description": {
+        "1": " Sur mars, j'était chargé de construire des voitures volantes pour ensuite les livrer sur la planette Terre,\n mais aussi sur des colonies comme Reach, Binterall ou encore Newsaka.",
+        "2": "Sur la station Solaire \"Infinity\", je devais surveiller la Sphere Dyson, \n afin de m'assurer que la production d'énergie était correcte pour les colonies du système solaire",
+        "3": " Sur diverse station spatiale autour de la nébuleuse d'Orion,\n j'étais chargé d'une équipe de terraformeur, \npour la terraformation de la prochaine colonie de l'empire humain: Shear"
+      }
+    }
   },
 
   "navText": {
     "about": "À propos",
     "formations": "Formations",
     "skills": "Compétences",
-    "experiences": "Experiences"
+    "experiences": "Expériences"
+  },
+
+  "experienceCard": {
+    "company": "Entreprise",
+    "date": "Date",
+    "tech": "Technologies"
   }
 }

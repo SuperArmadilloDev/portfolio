@@ -5,10 +5,22 @@
     "iconsTitle": "Icons & Buttons",
     "navTitle": "Navigation",
     "cardTitle": "Element contents",
+    "sectionStyleTitle": "section transition",
     "colorPalette": "Color palette",
     "textButtonIcon": "Button with icon",
     "textButton": "Button",
-    "cardContentTitle": "Card content title"
+    "experienceCard": {
+      "title": "Thecnical and technological manager of space infrastructure",
+      "company": "Union of Galactic Technology (U.G.T.)",
+      "date": "Aug/2132 - Sept/2220",
+      "place": "Space",
+      "tech": "Flying cars - Terraforming Robot - Spatial plant",
+      "description": {
+        "1": " On mars, I was assigned to build flying cars before shipping them on planet Earth\n, and also on others colonies like Reach, Binterall and even Newsaka.",
+        "2": "On the solar station \"Infinity\", I was monitoring the Dyson sphere,\n to make sure that the energy production was correct for the colonies on the solar system.",
+        "3": "On different space station near the Orion nebula, I was attached to a team of terraformers,\n for terraforming the new human empire colony: Shear"
+      }
+    }
   },
 
   "navText": {
@@ -16,5 +28,11 @@
     "formations": "Formations",
     "skills": "Skills",
     "experiences": "Experiences"
+  },
+
+  "ExperienceCard": {
+    "company": "Company",
+    "date": "Date",
+    "tech": "Technology"
   }
 }
